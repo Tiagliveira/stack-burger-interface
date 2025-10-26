@@ -9,12 +9,12 @@ export const Banner = styled.div`
     height: 380px;
 
 h1{
-  font-family: "BBH Sans Hegarty", sans-serif; 
-  font-size:80px;
-  color:#f4f4f4;
-  position: absolute;
-  right: 20%;
-  top:10%;
+    font-family: "BBH Sans Hegarty", sans-serif; 
+    font-size:80px;
+    color:#f4f4f4;
+    position: absolute;
+    right: 20%;
+    top:10%;
 
 }
 

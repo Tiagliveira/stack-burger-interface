@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import Carousel from 'react-multi-carousel';
 import { api } from '../../services/api';
-import { Container, ContainerItems, Title } from './styled';
+import { Container, ContainerItems, Title } from './styles';
 import 'react-multi-carousel/lib/styles.css';
 
 export function CategoriesCarousel() {

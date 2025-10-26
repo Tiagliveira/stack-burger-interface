@@ -31,16 +31,16 @@ export const Title = styled.h2`
 `;
 
 export const ContainerItems = styled.div`
-background: url('${(props) => props.imagemUrl}');
-background-position:center;
-background-size:cover;
+    background: url('${(props) => props.imagemUrl}');
+    background-position:center;
+    background-size:cover;
 
-display: flex;
-align-items:center;
-padding: 20px 10px;
-width:100%;
-height:250px;
-border-radius:25px;
+    display: flex;
+    align-items:center;
+    padding: 20px 10px;
+    width:100%;
+    height:250px;
+    border-radius:25px;
 
 p{
     font-size:22.5px;
@@ -49,7 +49,7 @@ p{
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px 30px;
     border-radius: 30px;
-    margin-top:50px
+    margin-top: 50px;
     
 }
 `;
