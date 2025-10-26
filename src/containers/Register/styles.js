@@ -1,7 +1,7 @@
+import { Link as ReactLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Background from './../../assets/background.jpg';
 import BackgroundLogin from './../../assets/backgroundLogin.png';
-
 export const Container = styled.div`
  display: flex;
  height: 100vh;
@@ -21,7 +21,7 @@ export const LeftContainer = styled.div`
  justify-content:center;
 
  img{
-    width:70%;
+    width:60%;
  }
 `;
 export const RightContainer = styled.div`
@@ -35,6 +35,7 @@ flex-direction: column;
  max-width:50%;
 
  background: url('${BackgroundLogin}');
+ background-size:cover;
  background-color:#1e1e1e;
 
  p{
@@ -96,10 +97,12 @@ p{
 }
 `;
 
-export const Link = styled.a`
+export const Link = styled(ReactLink)`
   font-size:18px;
   font-weight:600;
-  color: #fff;
   outline:#fff;
+  text-decoration: none;
   
 `;
+
+('Seja Bem-vindo 👌');
