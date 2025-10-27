@@ -21,13 +21,14 @@ h1{
 `;
 
 export const Container = styled.section`
-    background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)),
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
     url('${Background}');
+    height:100%;
     background-size:cover;
     background-position:center;
-    height:500px;
+    
 `;
 export const Content = styled.div`
-
+padding-bottom: 50px;
 
 `;

@@ -7,6 +7,13 @@ export const Container = styled.div`
     }
 
   padding-left:50px;
+
+  .react-multiple-carousel__arrow--right {
+        top:10px;
+    }
+    .react-multiple-carousel__arrow--left {
+        top:10px;
+    }
 `;
 export const Title = styled.h2`
     font-size:32px;
@@ -31,7 +38,7 @@ export const Title = styled.h2`
 `;
 
 export const ContainerItems = styled.div`
-    background: url('${(props) => props.imagemUrl}');
+    background: url('${(props) => props.imagemurl}');
     background-position:center;
     background-size:cover;
 
@@ -41,10 +48,11 @@ export const ContainerItems = styled.div`
     width:100%;
     height:250px;
     border-radius:25px;
+    cursor: grab;
 
 p{
     font-size:22.5px;
-    font-weight: bold;
+    font-weight: 500;
     color: #fff;
     background-color: rgba(0, 0, 0, 0.5);
     padding: 10px 30px;
