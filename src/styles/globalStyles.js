@@ -7,7 +7,7 @@ const GlobalStyles = createGlobalStyle`
     padding: 0;
     box-sizing: border-box;
     outline: none;
-    font-family: "BBH Sans Hegarty", sans-serif;
+    font-family: "POPPINS", sans-serif;
     font-weight:400;
     font-style:normal;
 

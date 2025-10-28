@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import Background from '../../assets/backgroundLogin.png';
+import Background from '../../assets/background2.png';
 import BannerHome from '../../assets/banner-home.png';
 
 export const Banner = styled.div`
@@ -21,7 +21,7 @@ h1{
 `;
 
 export const Container = styled.section`
-    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)),
+    background: linear-gradient(rgba(255, 255, 255, 0.0), rgba(255, 255, 255, 0.0)) no-repeat,
     url('${Background}');
     height:100%;
     background-size:cover;
