@@ -1,7 +1,12 @@
+import { CartProvaider } from './CartContext';
 import { UseProvider } from './UserContext';
 
 const AppProvider = ({ children }) => {
-	return <UseProvider>{children}</UseProvider>;
+	return (
+		<UseProvider>
+			<CartProvaider>{children}</CartProvaider>
+		</UseProvider>
+	);
 };
 
 export default AppProvider;
