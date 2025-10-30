@@ -45,6 +45,7 @@ export const ContainerItems = styled.div`
 
     display: flex;
     align-items:center;
+    justify-content: center;
     padding: 20px 10px;
     width:100%;
     height:250px;
@@ -62,6 +63,7 @@ export const CategoryButton = styled(Link)`
     border-radius: 30px;
     margin-top: 50px;
     text-decoration: none;
+   
 
     &:hover{
         background-color: #9758a6;

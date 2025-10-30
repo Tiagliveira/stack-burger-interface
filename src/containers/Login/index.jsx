@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import * as yup from 'yup';
 import Logo from './../../assets/LogodevBurg.png';
 import { Button } from '../../components/Button/index';
+import { UseUser } from '../../hooks/UserContext.jsx';
 import { api } from './../../services/api.js';
 import {
 	Container,
@@ -17,6 +18,9 @@ import {
 } from './styles';
 
 export function Login() {
+	const navegate = useNavigate();
+	const { putUserData } = UseUser();
+
 	const schema = yup
 		.object({
 			email: yup
@@ -37,12 +41,9 @@ export function Login() {
 	} = useForm({
 		resolver: yupResolver(schema),
 	});
-	const navegate = useNavigate();
 	const onSubmit = async (data) => {
 		try {
-			const {
-				data: { token },
-			} = await toast.promise(
+			const { data: userData } = await toast.promise(
 				api.post('/sessions', {
 					email: data.email,
 					password: data.password,
@@ -59,7 +60,8 @@ export function Login() {
 					},
 				},
 			);
-			localStorage.setItem('token', token);
+
+			putUserData(userData);
 		} catch (err) {
 			if (err.response?.status === 500) {
 				toast.error('😵 Falha no Sistema! Tente Novamente em breve');
