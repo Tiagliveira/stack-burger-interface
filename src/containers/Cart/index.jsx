@@ -1,4 +1,5 @@
 import Logo from '../../assets/LogodevBurg.png'
+import { CartItems, CartResume } from '../../components';
 import { Banner, Container, Content, Title } from "./styles.js";
 
 
@@ -10,8 +11,8 @@ export function Cart() {
             </Banner>
             <Title>Checkout de Pedidos</Title>
             <Content>
-                {/*   <CartItems/>
-                <CartResume/>*/}
+                <CartItems />
+                <CartResume />
             </Content>
         </Container>
     );
