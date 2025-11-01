@@ -12,7 +12,7 @@ export function CartResume() {
     const [deliveryTax] = useState(500);
 
     const navigate = useNavigate();
-    const { cartProducts, clearCart } = UseCart();
+    const { cartProducts, _clearCart } = UseCart();
 
     useEffect(() => {
         const sumAllItems = cartProducts.reduce((acc, current) => {
@@ -23,35 +23,29 @@ export function CartResume() {
 
     const submitOrder = async () => {
         const products = cartProducts.map((product) => {
-            return { id: product.id, quantity: product.quantity };
+            return { id: product.id, quantity: product.quantity, price: product.price };
         });
 
         try {
-            const { status } = await api.post(
-                '/orders',
-                {
-                    products,
-                },
-                {
-                    validateStatus: () => true,
-                },
-            );
+            const { data } = await api.post('/create_payment_intent', { products });
 
-            if ((status === 200) | (status === 201)) {
-                setTimeout(() => {
-                    navigate('/');
-                }, 2000);
+            navigate('/checkout', {
+                state: data,
+            })
 
-                clearCart();
-                toast.success('🎉 Pedido Realizado com Sucesso! ');
-            } else if (status === 409) {
-                toast.error('Falha ao realizar o pedido');
-            } else {
-                throw new Error();
-            }
         } catch (_error) {
-            toast.error('😵 Falha no Sistema! Tente Novamente em breve');
+            toast.error('🦄 Error tente Novamente!', {
+                position: "top-right",
+                autoClose: 5000,
+                hideProgressBar: false,
+                closeOnClick: false,
+                pauseOnHover: true,
+                draggable: true,
+                progress: undefined,
+                theme: "dark",
+            });
         }
+
     };
 
     return (

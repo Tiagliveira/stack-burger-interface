@@ -35,8 +35,6 @@ export function Menu() {
 		async function loadCategories() {
 			const { data } = await api.get('/categories');
 
-			console.log(data);
-
 			const newCategories = [{ id: 0, name: 'Todos' }, ...data];
 
 			setCategories(newCategories);
