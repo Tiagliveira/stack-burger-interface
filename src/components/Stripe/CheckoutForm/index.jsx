@@ -5,7 +5,7 @@ import {
 } from '@stripe/react-stripe-js';
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import './styles.css';
+import '../styles.css';
 import { toast } from 'react-toastify';
 import { UseCart } from '../../../hooks/CartContext';
 import { api } from '../../../services/api';
@@ -17,7 +17,7 @@ export default function CheckoutForm() {
     const stripe = useStripe();
     const elements = useElements();
     const {
-        state: { dpmChekerLink },
+        state: { _dpmChekerLink },
     } = useLocation();
 
     const [message, setMessage] = useState(null);
@@ -71,6 +71,10 @@ export default function CheckoutForm() {
             } catch (_error) {
                 toast.error('😵 Falha no Sistema! Tente Novamente em breve');
             }
+        } else {
+            setTimeout(() => {
+                navigate(`/complete?payment_intent_client_secret=${paymentIntent.client_secret}`);
+            }, 3000);
         }
 
         setIsLoading(false);
