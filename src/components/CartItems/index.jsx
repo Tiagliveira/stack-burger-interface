@@ -1,4 +1,5 @@
 import { TrashIcon } from "@phosphor-icons/react";
+import { useTheme } from "styled-components";
 import { UseCart } from '../../hooks/CartContext';
 import { formatPrice } from '../../utils/formatPrice';
 import { Table } from '../index';
@@ -6,6 +7,7 @@ import { ButtonGroup, EmptyCart, ProductImage, TotalPrice } from './styles';
 
 
 export function CartItems() {
+    const theme = useTheme()
     const { cartProducts, increaseProduct, decreaseProduct, deleteProduct } = UseCart();
     return (
         <Table.Root>
@@ -38,7 +40,7 @@ export function CartItems() {
                             <TotalPrice>{formatPrice(product.quantity * product.price)}</TotalPrice>
                         </Table.Td>
                         <Table.Td>
-                            <TrashIcon color="#ff3205" size={25} onClick={() => deleteProduct(product.id)} />
+                            <TrashIcon style={{ color: theme.red }} size={25} onClick={() => deleteProduct(product.id)} />
                         </Table.Td>
                     </Table.Tr>
                 ))

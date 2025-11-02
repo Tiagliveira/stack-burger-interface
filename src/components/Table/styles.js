@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Root = styled.table`
     width:100%;
-    background-color: #fff;
+    background-color: ${(props) => props.theme.white};
     border-radius: 20px;
     border-collapse: collapse;
     
@@ -10,7 +10,7 @@ export const Root = styled.table`
 `;
 export const Header = styled.thead`
     gap: 10px;
-    border-color:1px solid  #484848;
+    border-color:1px solid  ${(props) => props.theme.secondBlack};
 `;
 
 export const Tr = styled.tr`
@@ -21,10 +21,10 @@ export const Tr = styled.tr`
 export const Th = styled.th`
     padding:16px;
     text-align: left;
-    color: #fff;
-    background-color: #484848;
+    color: ${(props) => props.theme.white};
+    background-color: ${(props) => props.theme.secondBlack};
     border:none;
-    border-bottom: 3px solid #cdcdcd;
+    border-bottom: 3px solid ${(props) => props.theme.lightGray};
     
 
     &:first-child{
@@ -37,8 +37,8 @@ export const Th = styled.th`
 `;
 export const Td = styled.td`
     padding:16px;
-    background-color: #fff;
-    color : #484848;
+    background-color: ${(props) => props.theme.white};
+    color : ${(props) => props.theme.secondBlack};
     font-weight: 500;
     line-height: 115%;
     border:none;

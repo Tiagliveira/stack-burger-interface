@@ -1,5 +1,6 @@
 import { ShoppingCartIcon, UserCircleIcon } from "@phosphor-icons/react";
 import { useNavigate, useResolvedPath } from "react-router-dom";
+import { useTheme } from "styled-components";
 import { UseUser } from '../../hooks/UserContext'
 import {
     Container,
@@ -11,8 +12,8 @@ import {
     Options,
     Profile
 } from './styles';
-
 export function Header() {
+    const theme = useTheme()
 
     const navigate = useNavigate();
     const { logout, userInfo } = UseUser()
@@ -35,7 +36,7 @@ export function Header() {
                 </Navigation>
                 <Options>
                     <Profile>
-                        <UserCircleIcon color="#fff" size={24} />
+                        <UserCircleIcon style={{ color: theme.white }} size={24} />
                         <div>
                             <p>
                                 Olá, <span>{userInfo.name}</span>
@@ -45,7 +46,7 @@ export function Header() {
                     </Profile>
 
                     <LinkContainer>
-                        <ShoppingCartIcon color="#fff" size={24} />
+                        <ShoppingCartIcon style={{ color: theme.white }} size={24} />
                         <HeaderLink to='/carrinho'>Carrinho</HeaderLink>
                     </LinkContainer>
                 </Options>

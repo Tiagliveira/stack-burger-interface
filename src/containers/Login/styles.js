@@ -40,7 +40,7 @@ flex-direction: column;
  background-color:#1e1e1e;
 
  p{
-   color:#fff;
+   color:${(props) => props.theme.white};
    font-size:18px;
    font-weight:500;
 
@@ -53,11 +53,11 @@ export const Title = styled.h2`
 
 font-family: "BBH Sans Hegarty", sans-serif;
 font-size: 25px;
-color: #fff;
+color: ${(props) => props.theme.white};
 
 
 span{
-   color: #9758a6;
+   color: ${(props) => props.theme.purple};
    font-family: "BBH Sans Hegarty", sans-serif;
 }
 `;
@@ -84,7 +84,7 @@ input {
    padding: 0 10px;
 }
 label{
-   color: #fff;
+   color: ${(props) => props.theme.white};
    font-size: 18px;
    font-weight: 600;
 }
@@ -92,7 +92,7 @@ label{
 p{
    font-size:14px;
    line-height:80%;
-   color:#cf3057;
+   color:${(props) => props.theme.darkRed};
    font-weight:400;
    height:10px;
 }
@@ -101,7 +101,7 @@ p{
 export const Link = styled(ReactLink)`
   font-size:18px;
   font-weight:600;
-  outline:#fff;
+  outline:${(props) => props.theme.white};
   text-decoration: none;
   
 `;
