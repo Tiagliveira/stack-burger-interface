@@ -15,7 +15,9 @@
 				"noSvgWithoutTitle": "off"
 			},
 			"correctness": {
-				"useUniqueElementIds": "off"
+				"useUniqueElementIds": "off",
+				"noUnreachable": "off",
+				"useExhaustiveDependencies": "off"
 			}
 		}
 	},

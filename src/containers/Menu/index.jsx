@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { CardProuct } from '../../components/CardProduct';
+import { CardProuct } from '../../components/index';
 import { api } from '../../services/api';
 import { formatPrice } from '../../utils/formatPrice';
 import {
@@ -22,9 +22,10 @@ export function Menu() {
 
 	const queryParams = new URLSearchParams(search);
 
-	const [activeCategory, setActiveCategory] = useState(() => {
-		const categoryId = +queryParams.get('categoria');
 
+	const [activeCategory, setActiveCategory] = useState(() => {
+
+		const categoryId = +queryParams.get('categoria');
 		if (categoryId) {
 			return categoryId;
 		}
@@ -78,13 +79,11 @@ export function Menu() {
 				{categories.map((category) => (
 					<CategoryButton
 						key={category.id}
-						$isActiveCategory={activeCategory === category.id}
+						$isActiveCategory={category.id === activeCategory}
 						onClick={() => {
 							navigate(
-								{
-									pathname: '/cardapio',
-									search: `?categoria=${category.id}`,
-								},
+								`?categoria=${category.id}`,
+
 								{
 									replace: true,
 								},

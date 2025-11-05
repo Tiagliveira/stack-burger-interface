@@ -53,7 +53,11 @@ export function Login() {
 					success: {
 						render() {
 							setTimeout(() => {
-								navegate('/');
+								if (userData?.admin) {
+									navegate('/admin/pedidos');
+								} else {
+									navegate('/');
+								}
 							}, 2000);
 							return 'Seja Bem-vindo(a) 👌';
 						},

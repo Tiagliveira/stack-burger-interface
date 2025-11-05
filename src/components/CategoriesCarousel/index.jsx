@@ -7,8 +7,8 @@ import { useNavigate } from 'react-router-dom';
 
 export function CategoriesCarousel() {
 	const [categories, setCategories] = useState([]);
-
 	const navigate = useNavigate();
+
 
 	useEffect(() => {
 		async function loadCategories() {
@@ -56,6 +56,7 @@ export function CategoriesCarousel() {
 									pathname: '/cardapio',
 									search: `?categoria=${category.id}`,
 								});
+
 							}}
 						>
 							{category.name}
