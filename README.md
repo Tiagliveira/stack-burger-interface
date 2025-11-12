@@ -1,16 +1,69 @@
-# React + Vite
+# 🍔 Dev-Burg
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Dev-Burg** é uma aplicação web para hamburguerias que permite aos clientes realizarem pedidos online através de um cardápio virtual. Os pedidos são adicionados ao carrinho e enviados diretamente ao estabelecimento. A plataforma também oferece um painel administrativo completo para gestão de produtos e pedidos.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Funcionalidades
 
-## React Compiler
+### Área do Cliente
+- Visualização do cardápio virtual
+- Adição de itens ao carrinho
+- Cadastro e login com geração de token JWT
+- Feedback visual com Toastify
+- Finalização de pedidos com integração Stripe
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Área Administrativa
+- Cadastro, edição e exclusão de produtos
+- Upload de imagens (armazenadas localmente, com URL salva no banco)
+- Criação de promoções
+- Visualização e gerenciamento de pedidos
 
-## Expanding the ESLint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+## 🛠️ Tecnologias Utilizadas
+
+| Frontend | Backend | Banco de Dados | Outros |
+|----------|---------|----------------|--------|
+| React | Node.js | PostgreSQL | Docker |
+| React Toastify | Express | MongoDB | Stripe API |
+| React Multi Carousel | JWT | | Biome |
+| Material UI | Yup | | bcrypt |
+| pnpm / yarn | Middlewares personalizados | | MVC Architecture |
+| @phosphor-icons | | | Outklout (rotas) |
+
+---
+
+## ⚙️ Como Rodar o Projeto
+
+### Pré-requisitos
+- Docker instalado
+- Node.js e pnpm/yarn instalados
+
+### Backend
+
+```bash
+pnpm install
+pnpm dev
+
+⚠️ O frontend só funciona com o backend rodando. Certifique-se de configurar corretamente os arquivos .env com dados de banco e segurança.
+
+🧪 Testes e Dados
+- Logins e pedidos de teste disponíveis
+- Banco de dados: PostgreSQL e MongoDB
+- Dados de imagem são salvos como URL no banco, com arquivos armazenados localmente
+
+📷 Imagem do Projeto
+![Dev-Burg Interface](https://link-da-imagem.com/imageReadme.png)
+
+🌐 Deploy
+Ainda não disponível online. O deploy será realizado após ajustes finais.
+
+🔗 Repositórios
+- Repositório do Backend
+
+👨‍💻 Desenvolvedor
+Aplicação desenvolvida por Tiago Oliveira.
+
+
+

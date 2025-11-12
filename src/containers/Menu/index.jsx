@@ -18,19 +18,16 @@ export function Menu() {
 
 	const navigate = useNavigate();
 
-	const { search } = useLocation();
-
-	const queryParams = new URLSearchParams(search);
+	const location = useLocation();
 
 
-	const [activeCategory, setActiveCategory] = useState(() => {
+	const [activeCategory, setActiveCategory] = useState(0);
 
-		const categoryId = +queryParams.get('categoria');
-		if (categoryId) {
-			return categoryId;
-		}
-		return 0;
-	});
+	useEffect(() => {
+		const queryParams = new URLSearchParams(location.search);
+		const categoriaId = +queryParams.get('categoria') || 0;
+		setActiveCategory(categoriaId);
+	}, [location.search]);
 
 	useEffect(() => {
 		async function loadCategories() {

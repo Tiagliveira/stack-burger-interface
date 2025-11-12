@@ -64,6 +64,7 @@ export function CategoriesCarousel() {
 					</ContainerItems>
 				))}
 			</Carousel>
+
 		</Container>
 	);
 }

@@ -12,98 +12,100 @@ import { Row } from './row';
 import { Filter, FilterOptions } from './styles';
 
 export function Orders() {
-  const [orders, setOrders] = useState([]);
-  const [filteredOrders, setFilteredOrders] = useState([])
-  const [activeStatus, setActiveStatus] = useState(0)
+	const [orders, setOrders] = useState([]);
+	const [filteredOrders, setFilteredOrders] = useState([]);
+	const [activeStatus, setActiveStatus] = useState(0);
 
+	const [rows, setRows] = useState([]);
 
-  const [rows, setRows] = useState([]);
+	useEffect(() => {
+		async function loadOrders() {
+			const { data } = await api.get('orders');
+			setOrders(data);
+			setFilteredOrders(data);
+		}
+		loadOrders();
+	}, []);
 
-  useEffect(() => {
-    async function loadOrders() {
-      const { data } = await api.get('orders');
-      setOrders(data);
-      setFilteredOrders(data);
+	function createData(order) {
+		return {
+			name: order.user.name,
+			orderId: order._id,
+			date: order.createdAt,
+			status: order.status,
+			products: order.products,
+		};
+	}
 
-    }
-    loadOrders();
-  }, []);
+	useEffect(() => {
+		const newRows = filteredOrders.map((order) => createData(order));
 
-  function createData(order) {
-    return {
-      name: order.user.name,
-      orderId: order._id,
-      date: order.createdAt,
-      status: order.status,
-      products: order.products,
+		setRows(newRows);
+	}, [filteredOrders]);
 
-    };
-  };
+	function handleStatus(status) {
+		if (status.id === 0) {
+			setFilteredOrders(orders);
+		} else {
+			const newOrders = orders.filter((order) => order.status === status.value);
+			setFilteredOrders(newOrders);
+		}
 
-  useEffect(() => {
-    const newRows = filteredOrders.map((order) => createData(order));
+		setActiveStatus(status.id);
+	}
 
-    setRows(newRows);
-  }, [filteredOrders])
+	useEffect(() => {
+		if (activeStatus === 0) {
+			setFilteredOrders(orders);
+		} else {
+			const statusIndex = orderStausOptions.findIndex(
+				(item) => item.id === activeStatus,
+			);
 
-  function handleStatus(status) {
-    if (status.id === 0) {
-      setFilteredOrders(orders);
-    } else {
-      const newOrders = orders.filter(order => order.status === status.value)
-      setFilteredOrders(newOrders)
-    }
+			const newFilteredOrders = orders.filter(
+				(order) => order.status === orderStausOptions[statusIndex].value,
+			);
 
-    setActiveStatus(status.id)
-  }
+			setFilteredOrders(newFilteredOrders);
+		}
+	}, [orders]);
 
-  useEffect(() => {
-    if (activeStatus === 0) {
-      setFilteredOrders(orders)
-    } else {
-      const statusIndex = orderStausOptions.findIndex(
-        (item) => item.id === activeStatus)
-
-      const newFilteredOrders = orders.filter(order => order.status === orderStausOptions[statusIndex].value)
-
-      setFilteredOrders(newFilteredOrders)
-    }
-  }, [orders])
-
-  return (
-    <>
-      <Filter>
-        {orderStausOptions.map((status) => (
-          <FilterOptions
-            key={status.id}
-            onClick={() => handleStatus(status)}
-            $isActiveStatus={activeStatus === status.id}
-          >{status.label}</FilterOptions>
-        ))}
-
-      </Filter>
-      <TableContainer component={Paper}>
-        <Table aria-label="collapsible table">
-          <TableHead>
-            <TableRow>
-              <TableCell />
-              <TableCell>Pedido</TableCell>
-              <TableCell>Cliente</TableCell>
-              <TableCell>Data do Pedido</TableCell>
-              <TableCell>Status</TableCell>
-
-            </TableRow>
-          </TableHead>
-          <TableBody>
-            {rows.map((row) => (
-              <Row key={row.orderId}
-                row={row}
-                orders={orders}
-                setOrders={setOrders} />
-            ))}
-          </TableBody>
-        </Table>
-      </TableContainer>
-    </>
-  );
+	return (
+		<>
+			<Filter>
+				{orderStausOptions.map((status) => (
+					<FilterOptions
+						key={status.id}
+						onClick={() => handleStatus(status)}
+						$isActiveStatus={activeStatus === status.id}
+					>
+						{status.label}
+					</FilterOptions>
+				))}
+			</Filter>
+			<TableContainer component={Paper}>
+				<Table aria-label="collapsible table">
+					<TableHead>
+						<TableRow>
+							<TableCell />
+							<TableCell>Pedido</TableCell>
+							<TableCell>Cliente</TableCell>
+							<TableCell>Data do Pedido</TableCell>
+							<TableCell>Status</TableCell>
+						</TableRow>
+					</TableHead>
+					<TableBody>
+						{rows.map((row) => (
+							<Row
+								key={row.orderId}
+								row={row}
+								orders={orders}
+								setOrders={setOrders}
+							/>
+						))}
+					</TableBody>
+				</Table>
+			</TableContainer>
+		</>
+	);
 }

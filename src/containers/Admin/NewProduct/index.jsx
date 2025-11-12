@@ -2,11 +2,13 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import { FileImageIcon } from '@phosphor-icons/react';
 import { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import * as yup from 'yup';
 import { api } from '../../../services/api.js';
 import {
     Container,
+    ContainerCheckbox,
     ErroMessage,
     Form,
     Input,
@@ -25,6 +27,7 @@ const schema = yup.object({
         .required('Digite o Preço do  Produto')
         .typeError('Digite o Preço do  Produto'),
     category: yup.object().required('Escolha uma Categoria'),
+    offer: yup.bool(),
     file: yup
         .mixed()
         .test('required', 'Escolha um arquivo para continuar', (value) => {
@@ -45,6 +48,8 @@ const schema = yup.object({
 export function NewProduct() {
     const [fileName, setFileName] = useState(null);
     const [categories, setCategories] = useState([]);
+
+    const navigate = useNavigate()
 
     useEffect(() => {
         async function loadCategories() {
@@ -70,6 +75,7 @@ export function NewProduct() {
         productFormData.append('price', data.price * 100);
         productFormData.append('category_id', data.category.id);
         productFormData.append('file', data.file[0]);
+        productFormData.append('offer', data.offer);
 
 
         await toast.promise(api.post('/products', productFormData), {
@@ -77,6 +83,11 @@ export function NewProduct() {
             success: 'Produto Cadastrado com Sucesso',
             error: 'Falha ao Cadastrar o Novo Produto'
         })
+
+        setTimeout(() => {
+            navigate('/admin/produtos')
+        }, 2000)
+
 
     };
     return (
@@ -128,6 +139,13 @@ export function NewProduct() {
 
                     />
                     <ErroMessage>{errors?.category?.message}</ErroMessage>
+                </InputGroup>
+                <InputGroup>
+                    <ContainerCheckbox>
+                        <input type='checkbox'  {...register('offer')} />
+                        <Label>Produto em Oferta?</Label>
+
+                    </ContainerCheckbox>
                 </InputGroup>
 
                 <SubmitButton> Adicionar Produto</SubmitButton>
