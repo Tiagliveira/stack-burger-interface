@@ -35,7 +35,7 @@
 ---
 📷 Imagem do Projeto
 <p align="center">
-  <img src="https://github.com/Tiagliveira/dev-burg-interface/public/imageReadme.png?" alt="Dev-Burg Interface" width="600"/>
+  <img src="https://github.com/Tiagliveira/dev-burg-interface/main/public/imageReadme.png?" alt="Dev-Burg Interface" width="600"/>
 </p>
 
 ## ⚙️ Como Rodar o Projeto
