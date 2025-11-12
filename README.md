@@ -54,13 +54,15 @@ pnpm dev
 - Dados de imagem são salvos como URL no banco, com arquivos armazenados localmente
 
 📷 Imagem do Projeto
-![Dev-Burg Interface](https://link-da-imagem.com/imageReadme.png)
+<p align="center">
+  <img src="public/imageReadme.png" alt="Dev-Burg Interface" width="600"/>
+</p>
 
 🌐 Deploy
 Ainda não disponível online. O deploy será realizado após ajustes finais.
 
-🔗 Repositórios
-- Repositório do Backend
+🔗 Repositório Backend
+https://github.com/Tiagliveira/dev-burg-api
 
 👨‍💻 Desenvolvedor
 Aplicação desenvolvida por Tiago Oliveira.
