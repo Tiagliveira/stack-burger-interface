@@ -1,6 +1,6 @@
-# 🍔 Dev-Burg
+# 🍔 Stack-Burger
 
-**Dev-Burg** é uma aplicação web para hamburguerias que permite aos clientes realizarem pedidos online através de um cardápio virtual. Os pedidos são adicionados ao carrinho e enviados diretamente ao estabelecimento. A plataforma também oferece um painel administrativo completo para gestão de produtos e pedidos.
+**Stack-Burger** é uma aplicação web para hamburguerias que permite aos clientes realizarem pedidos online através de um cardápio virtual. Os pedidos são adicionados ao carrinho e enviados diretamente ao estabelecimento. A plataforma também oferece um painel administrativo completo para gestão de produtos e pedidos.
 
 ---
 
@@ -62,7 +62,7 @@ bs
 Ainda não disponível online. O deploy será realizado após ajustes finais.
 
 🔗 Repositório Backend
-https://github.com/Tiagliveira/dev-burg-api
+https://github.com/Tiagliveira/stack-burger-api
 
 👨‍💻 Desenvolvedor
 Aplicação desenvolvida por Tiago Oliveira.
