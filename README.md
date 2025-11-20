@@ -4,7 +4,7 @@
 
 ---
 
-## 🚀 Funcionalidades
+## Funcionalidades
 
 ### Área do Cliente
 - Visualização do cardápio virtual
@@ -21,7 +21,7 @@
 
 ---
 
-## 🛠️ Tecnologias Utilizadas
+## Tecnologias Utilizadas
 
 | Frontend | Backend | Banco de Dados | Outros |
 |----------|---------|----------------|--------|
@@ -33,7 +33,7 @@
 | @phosphor-icons | | | Outklout (rotas) |
 
 ---
-📷 Imagem do Projeto
+ Imagem do Projeto
 <p align="center">
   <img src="https://github.com/Tiagliveira/dev-burg-interface/blob/main/public/imageReadme.png?" alt="Dev-Burg Interface" width="600"/>
 </p>
@@ -44,6 +44,8 @@
 - Docker instalado
 - Node.js e pnpm/yarn instalados
 
+ [Repositório do Front-End](https://github.com/Tiagliveira/stack-burger-api)
+
 ### Backend
 
 ```bash
@@ -51,20 +53,20 @@ pnpm install
 pnpm dev
 bs
 
-⚠️ O frontend só funciona com o backend rodando. Certifique-se de configurar corretamente os arquivos .env com dados de banco e segurança.
+ O frontend só funciona com o backend rodando. Certifique-se de configurar corretamente os arquivos .env com dados de banco e segurança.
 
-🧪 Testes e Dados
+ Testes e Dados
 - Logins e pedidos de teste disponíveis
 - Banco de dados: PostgreSQL e MongoDB
 - Dados de imagem são salvos como URL no banco, com arquivos armazenados localmente
 
-🌐 Deploy
+ Deploy
 Ainda não disponível online. O deploy será realizado após ajustes finais.
 
-🔗 Repositório Backend
+ Repositório Backend
 https://github.com/Tiagliveira/stack-burger-api
 
-👨‍💻 Desenvolvedor
+ Desenvolvedor
 Aplicação desenvolvida por Tiago Oliveira.
 
 
