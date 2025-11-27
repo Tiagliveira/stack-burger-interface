@@ -1,4 +1,7 @@
+export * from './Admin/Categories';
+export * from './Admin/EditCategories';
 export * from './Admin/EditProducts';
+export * from './Admin/NewCategories';
 export * from './Admin/NewProduct';
 export * from './Admin/Orders';
 export * from './Admin/Products';

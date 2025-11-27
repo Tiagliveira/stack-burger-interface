@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useLocation } from 'react-router-dom'; // Adicionado Link, removido useNavigate (não é mais necessário aqui)
 import { CardProuct } from '../../components/index';
 import { api } from '../../services/api';
 import { formatPrice } from '../../utils/formatPrice';
@@ -16,13 +16,11 @@ export function Menu() {
 	const [products, setProducts] = useState([]);
 	const [filteredProducts, setFilteredProducts] = useState([]);
 
-	const navigate = useNavigate();
-
 	const location = useLocation();
-
 
 	const [activeCategory, setActiveCategory] = useState(0);
 
+	// Monitora a URL para atualizar a categoria ativa visualmente
 	useEffect(() => {
 		const queryParams = new URLSearchParams(location.search);
 		const categoriaId = +queryParams.get('categoria') || 0;
@@ -32,20 +30,16 @@ export function Menu() {
 	useEffect(() => {
 		async function loadCategories() {
 			const { data } = await api.get('/categories');
-
 			const newCategories = [{ id: 0, name: 'Todos' }, ...data];
-
 			setCategories(newCategories);
 		}
 
 		async function loadProducts() {
 			const { data } = await api.get('/products');
-
 			const newProducts = data.map((product) => ({
 				currencyValue: formatPrice(product.price),
 				...product,
 			}));
-
 			setProducts(newProducts);
 		}
 
@@ -63,6 +57,7 @@ export function Menu() {
 			setFilteredProducts(newFilteredProducts);
 		}
 	}, [products, activeCategory]);
+
 	return (
 		<Container>
 			<Banner>
@@ -76,22 +71,15 @@ export function Menu() {
 				{categories.map((category) => (
 					<CategoryButton
 						key={category.id}
+						to={`?categoria=${category.id}`}
 						$isActiveCategory={category.id === activeCategory}
-						onClick={() => {
-							navigate(
-								`?categoria=${category.id}`,
-
-								{
-									replace: true,
-								},
-							);
-							setActiveCategory(category.id);
-						}}
+						replace
 					>
 						{category.name}
 					</CategoryButton>
 				))}
 			</CategoryMenu>
+
 			<ProductsConatiner>
 				{filteredProducts.map((product) => (
 					<CardProuct key={product.id} product={product} />

@@ -1,4 +1,4 @@
-import { ListPlusIcon, ReceiptIcon } from '@phosphor-icons/react';
+import { ColumnsPlusRightIcon, ListPlusIcon, ReceiptIcon, TagIcon } from '@phosphor-icons/react';
 import { BarcodeIcon } from '@phosphor-icons/react/dist/ssr';
 
 export const navLinks = [
@@ -16,8 +16,22 @@ export const navLinks = [
     },
     {
         id: 3,
+        label: 'categorias',
+        path: '/admin/categorias',
+        icon: <TagIcon />,
+    },
+    {
+        id: 4,
         label: 'Adicionar Produto',
         path: '/admin/novo-produto',
         icon: <ListPlusIcon />,
     },
+    {
+        id: 5,
+        label: 'Adicionar Categoria',
+        path: '/admin/nova-categoria',
+        icon: <ColumnsPlusRightIcon />,
+    },
+
+
 ];

@@ -27,7 +27,7 @@ export default function CheckoutForm() {
         e.preventDefault();
 
         if (!stripe || !elements) {
-            console.error('Stripes or Elements com falha tem novamente');
+            console.error('Stripe ou Elements com falha, tente novamente');
             return;
         }
 
@@ -40,29 +40,39 @@ export default function CheckoutForm() {
 
         if (error) {
             setMessage(error.message);
-            toast.error(error.message)
+            toast.error(error.message);
         } else if (paymentIntent && paymentIntent.status === 'succeeded') {
             try {
+
                 const products = cartProducts.map((product) => {
-                    return { id: product.id, quantity: product.quantity, price: product.price };
+                    return {
+                        id: product.id,
+                        quantity: product.quantity,
+                        observation: product.observation
+                    };
                 });
+
                 const { status } = await api.post(
                     '/orders',
                     {
                         products,
+                        paymentMethod: paymentIntent.payment_method_types[0],
+                        paymentId: paymentIntent.id,
                     },
                     {
                         validateStatus: () => true,
                     },
                 );
 
-                if ((status === 200) | (status === 201)) {
+                if (status === 200 || status === 201) {
+                    toast.success('🎉 Pedido Realizado com Sucesso!');
+
+                    clearCart();
+
                     setTimeout(() => {
                         navigate(`/complete?payment_intent_client_secret=${paymentIntent.client_secret}`);
                     }, 3000);
 
-                    clearCart();
-                    toast.success('🎉 Pedido Realizado com Sucesso! ');
                 } else if (status === 409) {
                     toast.error('Falha ao realizar o pedido');
                 } else {

@@ -47,8 +47,8 @@ export const ContainerItems = styled.div`
     align-items:center;
     justify-content: center;
     padding: 20px 10px;
-    width:100%;
-    height:250px;
+    width:90%;
+    height:220px;
     border-radius:25px;
     cursor: grab;
 

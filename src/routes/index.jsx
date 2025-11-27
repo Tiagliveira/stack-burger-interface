@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 
-import { Cart, Checkout, CompletePayment, EditProducts, Home, Login, Menu, NewProduct, Orders, Products, Register } from '../containers';
+import { Cart, Categories, Checkout, CompletePayment, EditCategories, EditProducts, Home, Login, Menu, NewCategory, NewProduct, Orders, Products, Register } from '../containers';
 import { AdminLayout } from '../layouts/AdminLayout';
 import { UserLayout } from '../layouts/UserLayout';
 
@@ -11,10 +11,10 @@ export function Router() {
 		<Routes>
 			<Route path="/" element={<UserLayout />}>
 				<Route index element={<Home />} />
-				<Route path='/cardapio' element={<Menu />} />
-				<Route path='/carrinho' element={<Cart />} />
-				<Route path='/checkout' element={<Checkout />} />
-				<Route path='/complete' element={<CompletePayment />} />
+				<Route path='cardapio' element={<Menu />} />
+				<Route path='carrinho' element={<Cart />} />
+				<Route path='checkout' element={<Checkout />} />
+				<Route path='complete' element={<CompletePayment />} />
 			</Route>
 
 			<Route path='/admin' element={<AdminLayout />}>
@@ -22,7 +22,9 @@ export function Router() {
 				<Route path='/admin/novo-produto' element={<NewProduct />} />
 				<Route path='/admin/editar-produto' element={<EditProducts />} />
 				<Route path='/admin/produtos' element={<Products />} />
-
+				<Route path='/admin/categorias' element={<Categories />} />
+				<Route path='/admin/nova-categoria' element={<NewCategory />} />
+				<Route path='/admin/editar-categoria' element={<EditCategories />} />
 			</Route>
 
 
@@ -31,19 +33,3 @@ export function Router() {
 		</Routes >
 	)
 }
-
-
-
-
-
-
-
-// 	{
-// 		path: '/complete',
-// 		element: (
-// 			<>
-// 				<CompletePayment />
-// 			</>
-// 		)
-// 	}
-// ]);
