@@ -1,7 +1,7 @@
 import { createContext, useContext, useEffect, useState } from "react"
 import { io } from "socket.io-client"
 
-const apiUrl = import.meta.env.VITE_BASE_URL;
+const apiUrl = 'https://stack-burger-backend.5scnjc.easypanel.host';
 
 const SocketContext = createContext()
 
@@ -16,6 +16,7 @@ export const SocketProvider = ({ children }) => {
         const newSocket = io(apiUrl, {
             withCredentials: true,
             autoConnect: true,
+            transports: ['websocket', 'polling']
         })
         setSocket(newSocket)
 
