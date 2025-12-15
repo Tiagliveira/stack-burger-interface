@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 
-import { Cart, Categories, Checkout, CompletePayment, EditCategories, EditProducts, Home, Login, Menu, NewCategory, NewProduct, Orders, Products, Register } from '../containers';
+import { Cart, Categories, Checkout, CompletePayment, Dashboard, Delivery, EditCategories, EditProducts, Home, Login, Menu, NewCategory, NewDelivery, NewProduct, OrderDetails, Orders, Products, Register, Reports, UserOrders } from '../containers';
 import { AdminLayout } from '../layouts/AdminLayout';
 import { UserLayout } from '../layouts/UserLayout';
 
@@ -15,6 +15,9 @@ export function Router() {
 				<Route path='carrinho' element={<Cart />} />
 				<Route path='checkout' element={<Checkout />} />
 				<Route path='complete' element={<CompletePayment />} />
+				<Route path='orders' element={<UserOrders />} />
+				<Route path='order/:id' element={<OrderDetails />} />
+
 			</Route>
 
 			<Route path='/admin' element={<AdminLayout />}>
@@ -25,6 +28,10 @@ export function Router() {
 				<Route path='/admin/categorias' element={<Categories />} />
 				<Route path='/admin/nova-categoria' element={<NewCategory />} />
 				<Route path='/admin/editar-categoria' element={<EditCategories />} />
+				<Route path='/admin/cep-entrega' element={<Delivery />} />
+				<Route path='/admin/nova-rota-entrega' element={<NewDelivery />} />
+				<Route path='/admin/dashboard' element={<Dashboard />} />
+				<Route path='/admin/relatorio' element={<Reports />} />
 			</Route>
 
 

@@ -107,7 +107,7 @@ export function Register() {
 							<p>{errors?.confirmPassword?.message}</p>
 						</label>
 					</InpuntContainer>
-					<Button type="submit">Entrar</Button>
+					<Button type="submit">Criar</Button>
 				</Form>
 				<p>
 					Já possui conta? <Link to="/login"> Click aqui.</Link>

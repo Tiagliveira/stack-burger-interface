@@ -1,7 +1,9 @@
 import axios from 'axios';
 
+const apiUrl = import.meta.env.VITE_BASE_URL;
+
 export const api = axios.create({
-	baseURL: 'http://localhost:3001/',
+	baseURL: apiUrl,
 });
 
 api.interceptors.request.use((config) => {
@@ -9,7 +11,9 @@ api.interceptors.request.use((config) => {
 
 	const token = userData && JSON.parse(userData).token;
 
-	config.headers.authorization = `Bearer ${token}`;
+	if (token) {
+		config.headers.authorization = `Bearer ${token}`;
+	}
 
 	return config;
 });

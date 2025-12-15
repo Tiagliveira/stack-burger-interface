@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 import { useLocation, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import * as yup from 'yup';
+import * as Yup from 'yup';
 import { api } from '../../../services/api.js';
 import {
     Container,
@@ -19,15 +19,15 @@ import {
     SubmitButton,
 } from './styles.js';
 
-const schema = yup.object({
-    name: yup.string().required('Digite o Nome do Produto'),
-    price: yup
+const schema = Yup.object({
+    name: Yup.string(),
+    description: Yup.string(),
+    price: Yup
         .number()
         .positive()
-        .required('Digite o Preço do  Produto')
         .typeError('Digite o Preço do  Produto'),
-    category: yup.object().required('Escolha uma Categoria'),
-    offer: yup.bool(),
+    category: Yup.object().required('Escolha uma Categoria'),
+    offer: Yup.bool(),
 });
 
 export function EditProducts() {
@@ -60,7 +60,8 @@ export function EditProducts() {
         const productFormData = new FormData();
 
         productFormData.append('name', data.name);
-        productFormData.append('price', data.price * 100);
+        productFormData.append('description', data.description);
+        productFormData.append('price', data.price);
         productFormData.append('category_id', data.category.id);
         productFormData.append('file', data.file[0]);
         productFormData.append('offer', data.offer);
@@ -86,8 +87,13 @@ export function EditProducts() {
                     <ErroMessage>{errors?.name?.message}</ErroMessage>
                 </InputGroup>
                 <InputGroup>
+                    <Label>Descrição do Produto</Label>
+                    <Input type="text" {...register('description')} defaultValue={product.description} />
+                    <ErroMessage>{errors?.description?.message}</ErroMessage>
+                </InputGroup>
+                <InputGroup>
                     <Label>Preço</Label>
-                    <Input type="number" {...register('price')} defaultValue={product.price / 100} />
+                    <Input type="number" step="0.01" {...register('price')} defaultValue={product.price / 100} />
                     <ErroMessage>{errors?.price?.message}</ErroMessage>
                 </InputGroup>
                 <InputGroup>

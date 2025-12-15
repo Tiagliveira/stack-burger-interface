@@ -21,6 +21,7 @@ import {
 
 const schema = yup.object({
     name: yup.string().required('Digite o Nome do Produto'),
+    description: yup.string().required('Digite a Descrição do Produto'),
     price: yup
         .number()
         .positive()
@@ -34,9 +35,9 @@ const schema = yup.object({
             return value && value.length > 0;
         })
         .test('fileSize', 'Carregue um arquivo de até 3mb', (value) => {
-            return value && value.length > 0 && value[0].size <= 300000;
+            return value && value.length > 0 && value[0].size <= 3000000;
         })
-        .test('type', 'carregue imagens apenas pNG ou JPEG', (value) => {
+        .test('type', 'carregue imagens apenas PNG ou JPEG', (value) => {
             return (
                 value &&
                 value.length > 0 &&
@@ -72,7 +73,8 @@ export function NewProduct() {
         const productFormData = new FormData();
 
         productFormData.append('name', data.name);
-        productFormData.append('price', data.price * 100);
+        productFormData.append('description', data.description);
+        productFormData.append('price', data.price);
         productFormData.append('category_id', data.category.id);
         productFormData.append('file', data.file[0]);
         productFormData.append('offer', data.offer);
@@ -97,6 +99,11 @@ export function NewProduct() {
                     <Label>Nome</Label>
                     <Input type="text" {...register('name')} />
                     <ErroMessage>{errors?.name?.message}</ErroMessage>
+                </InputGroup>
+                <InputGroup>
+                    <Label>Descrição</Label>
+                    <Input type="text" {...register('description')} />
+                    <ErroMessage>{errors?.description?.message}</ErroMessage>
                 </InputGroup>
                 <InputGroup>
                     <Label>Preço</Label>

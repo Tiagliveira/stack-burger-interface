@@ -5,6 +5,22 @@ export const Container = styled.div`
     display:flex;
     justify-content: center;
     align-items: center;
+
+    table {
+         background-color: ${(props) => props.theme.black};
+          color: ${(props) => props.theme.white};
+    }
+
+    .css-1orzuox-MuiTableCell-root {
+        color: ${(props) => props.theme.white};
+    }
+    .css-bmnu5q-MuiTableCell-root {
+        color: ${(props) => props.theme.white};
+    }
+
+     .css-1dc80h3-MuiTableCell-root {
+        color: ${(props) => props.theme.white};
+     }
 `;
 
 export const CategoryImage = styled.img`
@@ -16,7 +32,7 @@ export const CategoryImage = styled.img`
 
 export const EditButton = styled.button`
     border: none;
-    background-color: ${(props) => props.theme.darkWhite};
+    background-color: ${(props) => props.theme.gren};
     height: 32px;
     width: 32px;
     border-radius: 8px;
@@ -26,15 +42,16 @@ export const EditButton = styled.button`
     justify-content: center;
 
     svg{
-        height: 18px;
-        width: 18px;
+        height: 20px;
+        width: 20px;
+        fill: ${(props) => props.theme.mainBlack};
     }
 
     &:hover {
-        background-color: ${(props) => props.theme.purple};
+        background-color: ${(props) => props.theme.white};
 
         svg{
-            fill: ${(props) => props.theme.white};
+            fill: ${(props) => props.theme.mainBlack};
         }
     }
 

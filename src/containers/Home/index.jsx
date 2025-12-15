@@ -1,9 +1,9 @@
 import { CategoriesCarousel, OffersCarousel } from '../../components';
-import { Banner, Container, Content } from './styles';
+import { Banner, Container, Content, Main } from './styles';
 
 export function Home() {
 	return (
-		<main>
+		<Main>
 			<Banner>
 				<h1>Bem-vindo(a)</h1>
 			</Banner>
@@ -13,6 +13,6 @@ export function Home() {
 					<OffersCarousel />
 				</Content>
 			</Container>
-		</main>
+		</Main>
 	);
 }

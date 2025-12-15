@@ -5,17 +5,18 @@ const CartContext = createContext({});
 export const CartProvaider = ({ children }) => {
     const [cartProducts, setCartProducts] = useState([]);
 
+    const updateLocalStorage = (products) => {
+        localStorage.setItem('devburg:cartInfo', JSON.stringify(products));
+    };
+
     const putProductInCart = (product) => {
         const cartIndex = cartProducts.findIndex((prd) => prd.id === product.id);
-
         let newProductInCart = [];
 
         if (cartIndex >= 0) {
             newProductInCart = cartProducts;
-
             newProductInCart[cartIndex].quantity =
                 newProductInCart[cartIndex].quantity + 1;
-
             setCartProducts(newProductInCart);
         } else {
             product.quantity = 1;
@@ -27,16 +28,16 @@ export const CartProvaider = ({ children }) => {
     };
 
     const clearCart = () => {
-        setCartProducts([])
-        updateLocalStorage([])
+        setCartProducts([]);
+        updateLocalStorage([]);
     };
 
     const deleteProduct = (productId) => {
         const newCart = cartProducts.filter((prd) => prd.id !== productId);
-
         setCartProducts(newCart);
         updateLocalStorage(newCart);
     };
+
     const increaseProduct = (productId) => {
         const newCart = cartProducts.map((prd) => {
             return prd.id === productId
@@ -46,6 +47,7 @@ export const CartProvaider = ({ children }) => {
         setCartProducts(newCart);
         updateLocalStorage(newCart);
     };
+
     const decreaseProduct = (productId) => {
         const cartIndex = cartProducts.findIndex((prd) => prd.id === productId);
 
@@ -61,13 +63,22 @@ export const CartProvaider = ({ children }) => {
             deleteProduct(productId);
         }
     };
-    const updateLocalStorage = (products) => {
-        localStorage.setItem('devburg:cartInfo', JSON.stringify(products));
+
+
+    const updateProductObservation = (productId, newObservation) => {
+        const newCart = cartProducts.map((product) => {
+            return product.id === productId
+                ? { ...product, observation: newObservation }
+                : product;
+        });
+
+        setCartProducts(newCart);
+        updateLocalStorage(newCart);
     };
+
 
     useEffect(() => {
         const clientCartData = localStorage.getItem('devburg:cartInfo');
-
         if (clientCartData) {
             setCartProducts(JSON.parse(clientCartData));
         }
@@ -82,6 +93,7 @@ export const CartProvaider = ({ children }) => {
                 deleteProduct,
                 increaseProduct,
                 decreaseProduct,
+                updateProductObservation,
             }}
         >
             {children}
@@ -95,5 +107,6 @@ export const UseCart = () => {
     if (!context) {
         throw new Error('useCart must be used with a context');
     }
+
     return context;
 };

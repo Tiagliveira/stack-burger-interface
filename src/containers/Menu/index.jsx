@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useLocation } from 'react-router-dom'; // Adicionado Link, removido useNavigate (não é mais necessário aqui)
-import { CardProuct } from '../../components/index';
+import { CardProduct } from '../../components/index';
 import { api } from '../../services/api';
 import { formatPrice } from '../../utils/formatPrice';
 import {
@@ -19,8 +19,6 @@ export function Menu() {
 	const location = useLocation();
 
 	const [activeCategory, setActiveCategory] = useState(0);
-
-	// Monitora a URL para atualizar a categoria ativa visualmente
 	useEffect(() => {
 		const queryParams = new URLSearchParams(location.search);
 		const categoriaId = +queryParams.get('categoria') || 0;
@@ -36,13 +34,19 @@ export function Menu() {
 
 		async function loadProducts() {
 			const { data } = await api.get('/products');
-			const newProducts = data.map((product) => ({
-				currencyValue: formatPrice(product.price),
-				...product,
-			}));
-			setProducts(newProducts);
-		}
+			const newProducts = data.sort((a, b) => {
+				const ratingA = Number(a.rating_average) || 0;
+				const ratingB = Number(b.rating_average) || 0;
 
+				return ratingB - ratingA
+			})
+			const finalProducts = newProducts.map(product => ({
+				...product,
+				currencyValue: formatPrice(product.price),
+			}));
+			setProducts(finalProducts);
+			setFilteredProducts(finalProducts)
+		}
 		loadCategories();
 		loadProducts();
 	}, []);
@@ -82,7 +86,7 @@ export function Menu() {
 
 			<ProductsConatiner>
 				{filteredProducts.map((product) => (
-					<CardProuct key={product.id} product={product} />
+					<CardProduct key={product.id} product={product} />
 				))}
 			</ProductsConatiner>
 		</Container>

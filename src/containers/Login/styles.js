@@ -3,10 +3,19 @@ import styled from 'styled-components';
 import Background from './../../assets/background.jpg';
 import BackgroundLogin from './../../assets/backgroundLogin.png';
 
+import { device } from './../../styles/breakpoits';
+
 export const Container = styled.div`
  display: flex;
  height: 100vh;
  width:100vw;
+
+ @media ${device.tablet} {
+   display: flex;
+   flex-direction: column;
+   height: 100dvh;
+   width:100vw;
+ }
 `;
 export const LeftContainer = styled.div`
  background: url('${Background}');
@@ -23,6 +32,11 @@ export const LeftContainer = styled.div`
 
  img{
     width:60%;
+ }
+
+ @media ${device.tablet} {
+   height: 40%;
+   max-width: 100%;
  }
 `;
 export const RightContainer = styled.div`
@@ -48,6 +62,11 @@ flex-direction: column;
       text-decoration:underline;
    }
  }
+
+ @media ${device.tablet} {
+   height: 60%;
+   max-width: 100%;
+ }
 `;
 export const Title = styled.h2`
 
@@ -60,6 +79,14 @@ span{
    color: ${(props) => props.theme.purple};
    font-family: "BBH Sans Hegarty", sans-serif;
 }
+
+@media ${device.mobile} {
+   font-size: 21px;
+ }
+
+ @media ${device.mobileMini} {
+   font-size: 18px;
+ }
 `;
 export const Form = styled.form`
 display:flex;
@@ -101,7 +128,11 @@ p{
 export const Link = styled(ReactLink)`
   font-size:18px;
   font-weight:600;
-  outline:${(props) => props.theme.white};
+  color:${(props) => props.theme.purple};
+  outline:${(props) => props.theme.purple};
   text-decoration: none;
   
+  &:hover {
+   color: ${(props) => props.theme.darkRed};
+  }
 `;

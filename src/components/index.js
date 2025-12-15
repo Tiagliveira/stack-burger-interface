@@ -6,6 +6,7 @@ export * from './CartResume';
 export * from './CategoriesCarousel';
 export * from './Footer';
 export * from './Header';
+export * from './ObservationModal';
 export * from './OffersCarousel';
 export * from './SideNavAdmin';
 export * from './Stripe/CheckoutForm';

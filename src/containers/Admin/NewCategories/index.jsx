@@ -90,7 +90,7 @@ export function NewCategory() {
                     </LabelUpload>
                     <ErroMessage>{errors?.file?.message}</ErroMessage>
                 </InputGroup>
-                <SubmitButton> Adicionar Produto</SubmitButton>
+                <SubmitButton> Adicionar Categoria</SubmitButton>
             </Form>
         </Container>
     );

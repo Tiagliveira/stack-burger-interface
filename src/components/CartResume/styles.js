@@ -1,8 +1,9 @@
 import styled from 'styled-components';
+import { device } from '../../styles/breakpoits';
 
 export const Container = styled.div`
 
-    background-color:${(props) => props.theme.white};
+    background-color:${(props) => props.theme.secondBlack};
     border-radius: 20px;
     display:flex;
     flex-direction:column;
@@ -10,7 +11,7 @@ export const Container = styled.div`
     margin-bottom: 20px;
 
     *{
-        color: ${(props) => props.theme.secondBlack};
+        color: ${(props) => props.theme.white};
         font-weight:500;
     }
 
@@ -28,7 +29,7 @@ export const Container = styled.div`
         grid-area:title;
         font-size:20px;
         font-weight: 700;
-        background-color:${(props) => props.theme.secondBlack};
+        background-color:${(props) => props.theme.black};
         color: ${(props) => props.theme.white};
         width:100%;
         padding:15px;
@@ -44,6 +45,7 @@ export const Container = styled.div`
         grid-area:items-price;
         padding-right:20px;
     }
+   
     .delivery-tax{
         grid-area:delivery-tax;
         padding-left:20px;
@@ -51,6 +53,20 @@ export const Container = styled.div`
     .delivery-tax-price{
         grid-area:delivery-tax-price;
         padding-right:20px;
+    }
+
+    .container-delivery{
+        gap: 20px;
+        padding: 20px
+    }
+
+     .container-center{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: center;
+        font-size:17px;
+        padding-bottom: 10px;
     }
 
     .container-bottom{
@@ -63,5 +79,108 @@ export const Container = styled.div`
             font-size:20px;
           font-weight: bolder;
         }
+
     }
+
+    .inputAddress {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        position: relative;
+
+        div {
+           display: flex;
+           flex-direction: column;
+           align-items: center; 
+           position: relative;
+           border-radius: 10px;
+           
+
+            input {
+                text-align: center;
+                height: 30px;
+                padding-right: 10px;
+                border-radius: 10px;
+                border: 2px solid ${(props) => props.theme.secondBlack};
+                background-color: ${(props) => props.theme.darkGray};
+                 
+
+                &::placeholder {
+                    color: ${(props) => props.theme.lightGray};
+                }
+            }
+
+            button {
+                 position: absolute;
+                 text-align: center;
+                 right: 10px;
+                 background: transparent;
+                 border: none;
+                 cursor: pointer;
+
+                
+
+
+                 svg {
+                    fill: ${(props) => props.theme.mainBlack};
+                 }
+
+                 &:hover svg {
+                    fill: ${(props) => props.theme.purple};
+                 }
+            }
+
+
+        }
+        .result {
+            position: absolute;
+            padding-top:10px;
+            bottom: -60px;
+        }
+        .number {
+                text-align: center;
+                width: 40%;
+                height: 30px;
+                border-radius: 10px;
+                border: 2px solid ${(props) => props.theme.secondBlack};
+                background-color: ${(props) => props.theme.darkGray};
+
+                &::placeholder {
+                    color: ${(props) => props.theme.lightGray};
+                }
+            }
+
+            p {
+                color: ${(props) => props.theme.gren};
+                font-size: 15px;
+                margin: 10px auto;
+            }
+
+    }
+`;
+
+export const ContainerBig = styled.div`
+
+    
+      @media ${device.tablet} {
+                        max-width:65%;
+                        margin: 30px auto;
+
+                }
+      @media ${device.mobile} {
+                        max-width:90%;
+                     
+
+                }
+      @media ${device.mobile} {
+                        max-width:90%;
+                     
+
+                }
+
+                @media ${device.mobileMini} {
+    max-width: 100%;
+    margin: auto;
+  }
 `;

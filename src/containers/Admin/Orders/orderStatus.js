@@ -1,12 +1,37 @@
 export const orderStausOptions = [
-	{ id: 0, value: 'Todos', label: 'Todos' },
+	{
+		id: 0,
+		value: 'All',
+		label: 'Todos',
+	},
 	{
 		id: 1,
-		value: 'Pedido realizado com sucesso',
-		label: 'Pedido realizado com sucesso',
+		value: 'CREATED',
+		label: 'Pedido Realizado',
 	},
-	{ id: 2, value: 'Em Produção', label: 'Em Produção' },
-	{ id: 3, value: 'Pedido Pronto', label: 'Pedido Pronto' },
-	{ id: 4, value: 'Pedido à caminho', label: 'Pedido à caminho' },
-	{ id: 5, value: 'Pedido Entregue', label: 'Pedido Entregue' },
+	{
+		id: 2,
+		value: 'PREPARING',
+		label: 'Em Preparação',
+	},
+	{
+		id: 3,
+		value: 'READY',
+		label: 'Pedido Pronto',
+	},
+	{
+		id: 4,
+		value: 'DELIVERING',
+		label: 'Saiu para Entrega',
+	},
+	{
+		id: 5,
+		value: 'DELIVERED',
+		label: 'Entregue',
+	},
+	{
+		id: 6,
+		value: 'CANCELED',
+		label: 'Cancelado',
+	},
 ];

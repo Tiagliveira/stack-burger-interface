@@ -2,10 +2,20 @@ import { Link as ReactLink } from 'react-router-dom';
 import styled from 'styled-components';
 import Background from './../../assets/background.jpg';
 import BackgroundLogin from './../../assets/backgroundLogin.png';
+
+import { device } from './../../styles/breakpoits';
+
 export const Container = styled.div`
  display: flex;
  height: 100vh;
  width:100vw;
+
+ @media ${device.tablet} {
+   display: flex;
+   flex-direction: column;
+   height: 100dvh;
+   width:100vw;
+ }
 `;
 export const LeftContainer = styled.div`
  background: url('${Background}');
@@ -22,6 +32,17 @@ export const LeftContainer = styled.div`
 
  img{
     width:60%;
+ }
+
+
+ @media ${device.tablet} {
+   height: 40%;
+   max-width: 100%;
+ }
+
+ @media ${device.mobile} {
+   height: 30%;
+   max-width: 100%;
  }
 `;
 export const RightContainer = styled.div`
@@ -46,6 +67,16 @@ flex-direction: column;
    a{
       text-decoration:underline;
    }
+ }
+
+ @media ${device.tablet} {
+   height: 60%;
+   max-width: 100%;
+ }
+
+  @media ${device.tablet} {
+   height: 70%;
+   max-width: 100%;
  }
 `;
 export const Title = styled.h2`
@@ -100,9 +131,12 @@ p{
 export const Link = styled(ReactLink)`
   font-size:18px;
   font-weight:600;
-  outline:${(props) => props.theme.white};
+  color:${(props) => props.theme.purple};
+  outline:${(props) => props.theme.purple};
   text-decoration: none;
+
+   &:hover {
+   color: ${(props) => props.theme.darkRed};
+  }
   
 `;
-
-('Seja Bem-vindo 👌');
