@@ -1,24 +1,13 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-    table {
+   .MuiTable-root {
         background-color: ${(props) => props.theme.black};
     }
 
-    .css-1orzuox-MuiTableCell-root {
+    .MuiTableCell-root {
         color: ${(props) => props.theme.white};
-    }
-
-    .css-bmnu5q-MuiTableCell-root {
-        color: ${(props) => props.theme.white};
-    }
-
-    .css-1dc80h3-MuiTableCell-root {
-         color: ${(props) => props.theme.white};
-    }
-
-    .css-14y13q2-MuiTableCell-root {
-         color: ${(props) => props.theme.white};
+        border-bottom: 1px solid ${(props) => props.theme.secondBlack}; 
     }
 `;
 
@@ -100,7 +89,7 @@ export const ModalContent = styled.div`
     background:  ${(props) => props.theme.black};
     padding: 30px;
     border-radius: 10px;
-    border: 1px solid  ${(props) => props.theme.secondBlack};;
+    border: 1px solid  ${(props) => props.theme.secondBlack};
     width: 400px;
     text-align: center;
     color: ${(props) => props.theme.black};
