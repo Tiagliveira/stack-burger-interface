@@ -4,21 +4,16 @@ export const Container = styled.div`
     max-width: 60%;
     margin: auto;
     border-radius: 12px;
-    
-   .css-y2ff7i-MuiPaper-root-MuiTableContainer-root  {
+
+    .MuiTableContainer-root, .MuiPaper-root {
         background-color: ${(props) => props.theme.black};
+        box-shadow: none; 
     } 
 
-    .css-1orzuox-MuiTableCell-root {
+    .MuiTableCell-root {
         color: ${(props) => props.theme.white};
-    }
-
-    .css-1dc80h3-MuiTableCell-root {
-        color: ${(props) => props.theme.white};
-    }
-
-    .css-14y13q2-MuiTableCell-root {
-        color: ${(props) => props.theme.white};
+        background-color: ${(props) => props.theme.black}; 
+        border-bottom: 1px solid ${(props) => props.theme.secondBlack}; 
     }
 `;
 
@@ -26,7 +21,6 @@ export const ProductImage = styled.img`
     height: 80px;
     padding: 12px;
     border-radius: 16px;
-
 `;
 
 export const EditButton = styled.button`
@@ -39,6 +33,8 @@ export const EditButton = styled.button`
     display: flex;
     align-items: center;
     justify-content: center;
+    cursor: pointer; 
+    transition: 0.2s; /
 
     svg{
         height: 18px;
@@ -52,5 +48,4 @@ export const EditButton = styled.button`
             fill: ${(props) => props.theme.white};
         }
     }
-
 `;

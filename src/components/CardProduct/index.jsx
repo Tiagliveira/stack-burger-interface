@@ -1,7 +1,8 @@
 import { MinusIcon, PencilSimpleLineIcon, PlusIcon, StarIcon, XIcon } from '@phosphor-icons/react';
 import PropTypes from 'prop-types';
 import { useState } from 'react';
-
+import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { UseCart } from '../../hooks/CartContext';
 import { CartButton } from '../CartButton';
 import { ObservationModal } from '../ObservationModal';
@@ -13,6 +14,9 @@ import {
 
 export function CardProduct({ product }) {
 	const { cartProducts, putProductInCart, increaseProduct, decreaseProduct, updateProductObservation } = UseCart();
+
+	const navigate = useNavigate();
+
 	const [showModal, setShowModal] = useState(false);
 	const [showDescModal, setShowDescModal] = useState(false);
 
@@ -23,11 +27,28 @@ export function CardProduct({ product }) {
 	const quantity = productInCart ? productInCart.quantity : 0;
 	const observation = productInCart ? productInCart.observation : '';
 
+	const handleAddToCart = () => {
+		const token = localStorage.getItem('devburg:token');
+
+		if (!token) {
+			toast.error("Ei, falta pouco! Faça login para pedir seu burger 🍔", {
+				position: "top-center",
+				autoClose: 2000,
+			});
+
+			setTimeout(() => {
+				navigate('/login');
+			}, 2000);
+			return;
+		}
+
+		putProductInCart(product);
+	};
+
 	const handleSaveObservation = (newText) => {
 		if (productInCart) {
 			updateProductObservation(product.id, newText);
 		} else {
-
 			putProductInCart({ ...product, observation: newText });
 		}
 		setShowModal(false);
@@ -59,9 +80,7 @@ export function CardProduct({ product }) {
 					</EditButton>
 				</div>
 
-
 				<ContainerButton>
-
 					<ContainerStrong>
 						<RatingContainer>
 							<div className="stars">
@@ -78,9 +97,7 @@ export function CardProduct({ product }) {
 
 						<div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
 							<strong>{product.currencyValue}</strong>
-
 						</div>
-
 					</ContainerStrong>
 
 					{quantity > 0 ? (
@@ -90,7 +107,7 @@ export function CardProduct({ product }) {
 							<button onClick={() => increaseProduct(product.id)}><PlusIcon size={14} weight="bold" /></button>
 						</QuantityContainer>
 					) : (
-						<CartButton onClick={() => putProductInCart(product)}></CartButton>
+						<CartButton onClick={handleAddToCart}></CartButton>
 					)}
 				</ContainerButton>
 			</Content>
