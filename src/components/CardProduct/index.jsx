@@ -32,8 +32,7 @@ export function CardProduct({ product }) {
 
 		if (!token) {
 			toast.error("Ei, falta pouco! Faça login para pedir seu burger 🍔", {
-				position: "top-center",
-				autoClose: 2000,
+				autoClose: 3000,
 			});
 
 			setTimeout(() => {
