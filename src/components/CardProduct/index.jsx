@@ -28,9 +28,9 @@ export function CardProduct({ product }) {
 	const observation = productInCart ? productInCart.observation : '';
 
 	const handleAddToCart = () => {
-		const token = localStorage.getItem('devburg:token');
+		const userData = localStorage.getItem('devburg:userData');
 
-		if (!token) {
+		if (!userData) {
 			toast.error("Ei, falta pouco! Faça login para pedir seu burger 🍔", {
 				autoClose: 3000,
 			});
