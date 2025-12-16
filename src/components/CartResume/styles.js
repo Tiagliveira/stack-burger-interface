@@ -89,6 +89,10 @@ export const Container = styled.div`
         align-items: center;
         position: relative;
 
+        @media ${device.mobile} {
+            max-width: 70%;
+        }
+
         div {
            display: flex;
            flex-direction: column;
@@ -148,6 +152,10 @@ export const Container = styled.div`
 
                 &::placeholder {
                     color: ${(props) => props.theme.lightGray};
+                }
+
+                @media ${device.mobile} {
+                    max-width: 30%;
                 }
             }
 

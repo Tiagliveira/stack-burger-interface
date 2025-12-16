@@ -11,6 +11,20 @@ const GlobalStyles = createGlobalStyle`
     font-weight:400;
     font-style:normal;
 
+    
+    html, body {
+        
+        background-color: ${(props) => props.theme.black};
+        
+        
+        width: 100%;
+        height: 100%;
+        overflow-x: hidden; 
+    }
+
+    body {
+        -webkit-font-smoothing: antialiased;
+    }
 
 }
 
