@@ -90,7 +90,8 @@ export const Container = styled.div`
         position: relative;
 
         @media ${device.mobile} {
-            max-width: 70%;
+           display: flex;
+           justify-content: center;
         }
 
         div {
@@ -99,6 +100,10 @@ export const Container = styled.div`
            align-items: center; 
            position: relative;
            border-radius: 10px;
+
+           @media ${device.mobile} {
+            max-width: 60%;
+        }
            
 
             input {

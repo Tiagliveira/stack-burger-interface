@@ -15,6 +15,7 @@ export const Container = styled.div`
    flex-direction: column;
    height: 100dvh;
    width:100vw;
+
  }
 `;
 export const LeftContainer = styled.div`
@@ -86,6 +87,13 @@ font-size: 25px;
 color: ${(props) => props.theme.purple};
 
 
+ @media ${device.mobile} {
+  font-size: 22px;
+  margin-top:10px;
+ }
+ 
+
+
 span{
    color: ${(props) => props.theme.purple};
    font-family: "BBH Sans Hegarty", sans-serif;
@@ -98,6 +106,11 @@ gap: 20px;
 padding:20px;
 width:100%;
 max-width:400px;
+
+ @media ${device.mobile} {
+  gap: 10px;
+ }
+ 
 
 `;
 export const InpuntContainer = styled.div`

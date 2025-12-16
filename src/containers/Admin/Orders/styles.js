@@ -11,8 +11,18 @@ export const ProductImage = styled.img`
 
 export const SelectStatus = styled(Select)`
     width: 240px;
-    background-color: ${(props) => props.theme.black};
     
+    .react-select__control {
+        background-color: ${(props) => props.theme.black};
+        border-color: ${(props) => props.theme.darkGray};
+    }
+    .react-select__single-value {
+        color: ${(props) => props.theme.white};
+    }
+    .react-select__menu {
+        background-color: ${(props) => props.theme.black};
+        color: ${(props) => props.theme.white};
+    }
 `;
 export const Filter = styled.div`
     display:flex;
@@ -164,45 +174,32 @@ export const NotificationBadge = styled.span`
 `;
 
 export const Container = styled.div`
-
-
-    TableContainer {
-        background-color: ${(props) => props.theme.black};
-        color:  ${(props) => props.theme.white};
-    }
-
+    background-color: ${(props) => props.theme.black};
+    min-height: 100vh;
 `;
 
 export const TableContainer = styled.div`
-     background-color: ${(props) => props.theme.secondBlack};
-     color:  ${(props) => props.theme.white};
-     
+    background-color: ${(props) => props.theme.secondBlack};
+    padding: 20px;
+    border-radius: 20px;
+
     span {
         color:  ${(props) => props.theme.gren};
     }
 
-    .css-1dc80h3-MuiTableCell-root {
-    color:  ${(props) => props.theme.white};
-}
+   
+    
+    .MuiTable-root {
+         background-color: ${(props) => props.theme.secondBlack};
+    }
 
- .css-1xtozoh-MuiTableRow-root {
-    color:  ${(props) => props.theme.white};
- }
-
- 
-
-.css-g6bqb5-MuiTableCell-root {
-    color:  ${(props) => props.theme.white};
-}
-
-.css-jiabcu-MuiTableCell-root {
-    color:  ${(props) => props.theme.white};
-}
-
-
-
-.css-1orzuox-MuiTableCell-root {
-    background-color: ${(props) => props.theme.black};
-    color:  ${(props) => props.theme.white};
-}
+    .MuiTableCell-root {
+        color:  ${(props) => props.theme.white};
+        border-bottom: 1px solid ${(props) => props.theme.darkGray};
+    }
+    
+    .MuiPaper-root {
+         background-color: ${(props) => props.theme.secondBlack};
+         color: ${(props) => props.theme.white};
+    }
 `;
