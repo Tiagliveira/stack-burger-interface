@@ -160,7 +160,7 @@ export function CartResume() {
                         <div className='inputAddress'>
 
 
-                            <div>
+                            <div className="address-wrapper">
                                 <input
                                     placeholder="CEP (00000-000)"
                                     value={cep}

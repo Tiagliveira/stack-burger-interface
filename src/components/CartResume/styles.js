@@ -86,35 +86,39 @@ export const Container = styled.div`
         display: flex;
         flex-direction: row;
         justify-content: space-between;
-        align-items: center;
+        align-items: center; 
         position: relative;
+        gap: 10px; 
+        padding: 0 20px; 
 
         @media ${device.mobile} {
-           display: flex;
-           justify-content: center;
+
+           justify-content: space-between;
         }
 
-        div {
-           display: flex;
-           flex-direction: column;
-           align-items: center; 
-           position: relative;
-           border-radius: 10px;
+        .address-wrapper {
+            display: flex;
+            flex-direction: column; 
+            align-items: center; 
+            position: relative;
+            border-radius: 10px;
+            
+            
+            width: 70%; 
 
-           @media ${device.mobile} {
-            max-width: 60%;
-        }
-           
+            @media ${device.mobile} {
+                width: 65%; 
+            }
 
             input {
+                width: 100%; 
                 text-align: center;
                 height: 30px;
-                padding-right: 10px;
+                padding-right: 30px; 
                 border-radius: 10px;
                 border: 2px solid ${(props) => props.theme.secondBlack};
                 background-color: ${(props) => props.theme.darkGray};
-                 
-
+                
                 &::placeholder {
                     color: ${(props) => props.theme.lightGray};
                 }
@@ -122,54 +126,57 @@ export const Container = styled.div`
 
             button {
                  position: absolute;
-                 text-align: center;
-                 right: 10px;
+                 top: 5px; 
+                 right: 5px; 
                  background: transparent;
                  border: none;
                  cursor: pointer;
 
-                
-
-
                  svg {
                     fill: ${(props) => props.theme.mainBlack};
+                    height: 18px; 
+                    width: 18px;
                  }
 
                  &:hover svg {
                     fill: ${(props) => props.theme.purple};
                  }
             }
-
-
         }
+
         .result {
             position: absolute;
             padding-top:10px;
             bottom: -60px;
+            left: 0;
+            width: 100%; 
+            z-index: 10; 
         }
+
         .number {
-                text-align: center;
-                width: 40%;
-                height: 30px;
-                border-radius: 10px;
-                border: 2px solid ${(props) => props.theme.secondBlack};
-                background-color: ${(props) => props.theme.darkGray};
+            text-align: center;
+            
+            width: 25%; 
+            
+            height: 30px;
+            border-radius: 10px;
+            border: 2px solid ${(props) => props.theme.secondBlack};
+            background-color: ${(props) => props.theme.darkGray};
 
-                &::placeholder {
-                    color: ${(props) => props.theme.lightGray};
-                }
-
-                @media ${device.mobile} {
-                    max-width: 30%;
-                }
+            &::placeholder {
+                color: ${(props) => props.theme.lightGray};
             }
 
-            p {
-                color: ${(props) => props.theme.gren};
-                font-size: 15px;
-                margin: 10px auto;
+            @media ${device.mobile} {
+                width: 30%;
             }
+        }
 
+        p {
+            color: ${(props) => props.theme.gren};
+            font-size: 15px;
+            margin: 10px auto;
+        }
     }
 `;
 
