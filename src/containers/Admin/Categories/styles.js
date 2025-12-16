@@ -2,25 +2,18 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
     max-width: 800px;
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
 
-    table {
-         background-color: ${(props) => props.theme.black};
-          color: ${(props) => props.theme.white};
+    .MuiTable-root {
+        background-color: ${(props) => props.theme.black};
     }
 
-    .css-1orzuox-MuiTableCell-root {
+    .MuiTableCell-root {
         color: ${(props) => props.theme.white};
+        border-bottom: 1px solid ${(props) => props.theme.mainBlack}; 
     }
-    .css-bmnu5q-MuiTableCell-root {
-        color: ${(props) => props.theme.white};
-    }
-
-     .css-1dc80h3-MuiTableCell-root {
-        color: ${(props) => props.theme.white};
-     }
 `;
 
 export const CategoryImage = styled.img`
