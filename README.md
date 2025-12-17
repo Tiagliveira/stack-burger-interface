@@ -1,73 +1,81 @@
-# 🍔 Stack-Burger
+# 🍔 Stack Burger - Plataforma de Delivery SaaS (Front-End)
 
-**Stack-Burger** é uma aplicação web para hamburguerias que permite aos clientes realizarem pedidos online através de um cardápio virtual. Os pedidos são adicionados ao carrinho e enviados diretamente ao estabelecimento. A plataforma também oferece um painel administrativo completo para gestão de produtos e pedidos.
+![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
+![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Socket.io](https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socket.io&logoColor=white)
+![Stripe](https://img.shields.io/badge/Stripe-626CD9?style=for-the-badge&logo=Stripe&logoColor=white)
 
----
+> **Aplicação Full Stack de Delivery com funcionalidades Real-Time, Pagamentos e Infraestrutura em VPS.**
 
-## Funcionalidades
-
-### Área do Cliente
-- Visualização do cardápio virtual
-- Adição de itens ao carrinho
-- Cadastro e login com geração de token JWT
-- Feedback visual com Toastify
-- Finalização de pedidos com integração Stripe
-
-### Área Administrativa
-- Cadastro, edição e exclusão de produtos
-- Upload de imagens (armazenadas localmente, com URL salva no banco)
-- Criação de promoções
-- Visualização e gerenciamento de pedidos
+O **Stack Burger** não é apenas um cardápio digital, é uma solução completa de SaaS (Software as a Service) para gestão de pedidos. A aplicação conecta clientes e cozinha em tempo real utilizando WebSockets, elimina a necessidade de "refresh" de página e automatiza a logística de entrega baseada em CEP.
 
 ---
 
-## Tecnologias Utilizadas
+## 🔥 Funcionalidades Avançadas
 
-| Frontend | Backend | Banco de Dados | Outros |
-|----------|---------|----------------|--------|
-| React | Node.js | PostgreSQL | Docker |
-| React Toastify | Express | MongoDB | Stripe API |
-| React Multi Carousel | JWT | | Biome |
-| Material UI | Yup | | bcrypt |
-| pnpm / yarn | Middlewares personalizados | | MVC Architecture |
-| @phosphor-icons | | | Outklout (rotas) |
+### 💻 Experiência do Cliente (Client-Side)
+- **Real-Time Updates:** O status do pedido (Preparando -> Saiu para Entrega) atualiza instantaneamente na tela do cliente via **Socket.io**.
+- **Logística Inteligente:** Cálculo de taxa de entrega dinâmico baseado em faixas de CEP.
+- **Regras de Cancelamento:** Implementação de SLA onde o cancelamento só é permitido em até 30 minutos e se o pedido não estiver em rota.
+- **Pagamentos Reais:** Checkout transparente integrado com **Stripe**.
+
+### 🛡️ Painel Administrativo & Segurança
+- **RBAC (Role-Based Access Control):** Rotas protegidas onde apenas administradores acessam relatórios financeiros.
+- **Dashboard Financeiro:** Gráficos e métricas de vendas.
+- **Gestão de Produtos:** Controle total de catálogo, estoque e promoções.
 
 ---
- Imagem do Projeto
+
+## 🛠️ Arquitetura & Tecnologias
+
+O projeto foi desenhado focando em performance e escalabilidade, migrando de hospedagem compartilhada para infraestrutura própria.
+
+| Categoria | Tecnologias |
+|-----------|-------------|
+| **Front-End** | React.js, TypeScript, Tailwind CSS, Context API |
+| **Real-Time** | Socket.io Client |
+| **Integrações** | Stripe SDK, ViaCEP API |
+| **Infraestrutura** | Docker Containers, VPS Linux, Nginx (Reverse Proxy) |
+
+---
+
+## 📸 Preview
+
 <p align="center">
-  <img src="https://github.com/Tiagliveira/dev-burg-interface/blob/main/public/imageReadme.png?" alt="Dev-Burg Interface" width="600"/>
+  <img src="https://github.com/Tiagliveira/dev-burg-interface/blob/main/public/imageReadme.png?raw=true" alt="Stack Burger Interface" width="100%"/>
 </p>
 
-## ⚙️ Como Rodar o Projeto
+---
+
+## 🚀 Como Rodar Localmente
 
 ### Pré-requisitos
-- Docker instalado
-- Node.js e pnpm/yarn instalados
+Certifique-se de ter o **Node.js** e o **Docker** instalados.
 
- [Repositório do Front-End](https://github.com/Tiagliveira/stack-burger-api)
-
-### Backend
-
+1. **Clone o repositório**
 ```bash
-pnpm install
-pnpm dev
-bs
+git clone [https://github.com/Tiagliveira/stack-burger-interface.git](https://github.com/Tiagliveira/stack-burger-interface.git)
+cd stack-burger-interface
 
- O frontend só funciona com o backend rodando. Certifique-se de configurar corretamente os arquivos .env com dados de banco e segurança.
+###Instale as dependências
+npm install
 
- Testes e Dados
-- Logins e pedidos de teste disponíveis
-- Banco de dados: PostgreSQL e MongoDB
-- Dados de imagem são salvos como URL no banco, com arquivos armazenados localmente
+###Configure as Variáveis de Ambiente (.env)
+VITE_API_URL=http://localhost:3001
 
- Deploy
-Ainda não disponível online. O deploy será realizado após ajustes finais.
+###Inicie o Projeto
+npm run dev
+```
+Nota: Para funcionalidade completa, é necessário rodar a API (Back-end) simultaneamente. [Acesse o Repositório da API aqui(https://github.com/Tiagliveira/stack-burger-api)]
 
- Repositório Backend
-https://github.com/Tiagliveira/stack-burger-api
+##Infraestrutura & Deploy
+A aplicação em produção roda em uma VPS Linux, orquestrada via Easypanel/Docker.
 
- Desenvolvedor
-Aplicação desenvolvida por Tiago Oliveira.
+Front-end: Containerizado e servido via Nginx.
 
+Back-end: Node.js em cluster pm2/Docker.
 
+Banco de Dados: Instances isoladas de PostgreSQL e MongoDB.
 
+##Autor
+Desenvolvido por Tiago Oliveira. Focado em Engenharia de Software e Soluções Scaláveis.
