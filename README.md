@@ -66,7 +66,7 @@ VITE_API_URL=http://localhost:3001
 ###Inicie o Projeto
 npm run dev
 ```
-Nota: Para funcionalidade completa, é necessário rodar a API (Back-end) simultaneamente. [Acesse o Repositório da API aqui(https://github.com/Tiagliveira/stack-burger-api)]
+Nota: Para funcionalidade completa, é necessário rodar a API (Back-end) simultaneamente. [Acesse o Repositório da API aqui](https://github.com/Tiagliveira/stack-burger-api)
 
 ## Infraestrutura & Deploy
 A aplicação em produção roda em uma VPS Linux, orquestrada via Easypanel/Docker.
