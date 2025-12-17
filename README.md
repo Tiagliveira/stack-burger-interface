@@ -11,22 +11,22 @@ O **Stack Burger** não é apenas um cardápio digital, é uma solução complet
 
 ---
 
-## 🔥 Funcionalidades Avançadas
+## Funcionalidades Avançadas
 
-### 💻 Experiência do Cliente (Client-Side)
+### Experiência do Cliente (Client-Side)
 - **Real-Time Updates:** O status do pedido (Preparando -> Saiu para Entrega) atualiza instantaneamente na tela do cliente via **Socket.io**.
 - **Logística Inteligente:** Cálculo de taxa de entrega dinâmico baseado em faixas de CEP.
 - **Regras de Cancelamento:** Implementação de SLA onde o cancelamento só é permitido em até 30 minutos e se o pedido não estiver em rota.
 - **Pagamentos Reais:** Checkout transparente integrado com **Stripe**.
 
-### 🛡️ Painel Administrativo & Segurança
+### Painel Administrativo & Segurança
 - **RBAC (Role-Based Access Control):** Rotas protegidas onde apenas administradores acessam relatórios financeiros.
 - **Dashboard Financeiro:** Gráficos e métricas de vendas.
 - **Gestão de Produtos:** Controle total de catálogo, estoque e promoções.
 
 ---
 
-## 🛠️ Arquitetura & Tecnologias
+## Arquitetura & Tecnologias
 
 O projeto foi desenhado focando em performance e escalabilidade, migrando de hospedagem compartilhada para infraestrutura própria.
 
@@ -39,15 +39,15 @@ O projeto foi desenhado focando em performance e escalabilidade, migrando de hos
 
 ---
 
-## 📸 Preview
+## Preview
 
 <p align="center">
-  <img src="https://github.com/Tiagliveira/dev-burg-interface/blob/main/public/imageReadme.png?raw=true" alt="Stack Burger Interface" width="100%"/>
+  <img src="https://github.com/Tiagliveira/dev-burg-interface/blob/main/public/imageReadme.png?raw=true" alt="Stack Burger Interface" width=60%/>
 </p>
 
 ---
 
-## 🚀 Como Rodar Localmente
+## Como Rodar Localmente
 
 ### Pré-requisitos
 Certifique-se de ter o **Node.js** e o **Docker** instalados.
@@ -68,7 +68,7 @@ npm run dev
 ```
 Nota: Para funcionalidade completa, é necessário rodar a API (Back-end) simultaneamente. [Acesse o Repositório da API aqui(https://github.com/Tiagliveira/stack-burger-api)]
 
-##Infraestrutura & Deploy
+## Infraestrutura & Deploy
 A aplicação em produção roda em uma VPS Linux, orquestrada via Easypanel/Docker.
 
 Front-end: Containerizado e servido via Nginx.
@@ -77,5 +77,9 @@ Back-end: Node.js em cluster pm2/Docker.
 
 Banco de Dados: Instances isoladas de PostgreSQL e MongoDB.
 
-##Autor
-Desenvolvido por Tiago Oliveira. Focado em Engenharia de Software e Soluções Scaláveis.
+## Autor
+
+Desenvolvido por **Tiago Oliveira**.
+Estudante de Análise e Desenvolvimento de Sistemas, focado em migrar do Front-end básico para aplicações Full Stack completas.
+
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/tiagoliveiradev)
