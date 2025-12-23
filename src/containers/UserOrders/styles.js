@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Background from './../../assets/background2.png';
+import Background from './../../assets/background2.webp';
 
 export const Container = styled.div`
     min-height: 100vh;

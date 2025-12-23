@@ -3,7 +3,7 @@ import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import * as yup from 'yup';
-import Logo from './../../assets/LogodevBurg.png';
+import Logo from './../../assets/LogodevBurg.webp';
 import { Button } from '../../components/Button/index';
 import { UseUser } from '../../hooks/UserContext.jsx';
 import { api } from './../../services/api.js';

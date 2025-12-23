@@ -1,4 +1,4 @@
-import Logo from '../../assets/LogodevBurg.png'
+import Logo from '../../assets/LogodevBurg.webp'
 import { CartItems, CartResume } from '../../components';
 import { Banner, Container, Content, Title } from "./styles.js";
 
