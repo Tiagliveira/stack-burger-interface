@@ -1,7 +1,7 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Background from './../../assets/background2.png';
-import BannerHamburguer from './../../assets/banner-hamburguer.png';
+import Background from './../../assets/background2.webp';
+import BannerHamburguer from './../../assets/banner-hamburguer.webp';
 import { device } from '../../styles/breakpoits';
 
 export const Container = styled.div`

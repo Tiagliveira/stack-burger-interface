@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Background from '../../assets/background2.png';
-import BannerHome from '../../assets/banner-home.png';
+import Background from '../../assets/background2.webp';
+import BannerHome from '../../assets/banner-home.webp';
 import { device } from '../../styles/breakpoits';
 
 export const Banner = styled.div`

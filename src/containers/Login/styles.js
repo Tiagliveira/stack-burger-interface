@@ -1,7 +1,7 @@
 import { Link as ReactLink } from 'react-router-dom';
 import styled from 'styled-components';
-import Background from './../../assets/background.jpg';
-import BackgroundLogin from './../../assets/backgroundLogin.png';
+import Background from './../../assets/background.webp';
+import BackgroundLogin from './../../assets/backgroundLogin.webp';
 
 import { device } from './../../styles/breakpoits';
 

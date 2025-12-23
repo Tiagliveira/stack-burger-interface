@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import Background from '../../assets/background2.png';
-import Texture from '../../assets/textureCart.png';
+import Background from '../../assets/background2.webp';
+import Texture from '../../assets/textureCart.webp';
 import { device } from './../../styles/breakpoits';
 
 export const Container = styled.div`
