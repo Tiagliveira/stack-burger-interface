@@ -1,7 +1,12 @@
 # 🍔 Stack Burger - Plataforma de Delivery SaaS (Front-End)
 
 ![React](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)
-![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white)
+![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
+![Recharts](https://img.shields.io/badge/Recharts-22b5bf?style=for-the-badge&logo=react&logoColor=white)
+![Phosphor Icons](https://img.shields.io/badge/Phosphor_Icons-C4F042?style=for-the-badge&logoColor=black)
+![MUI](https://img.shields.io/badge/MUI-007FFF?style=for-the-badge&logo=mui&logoColor=white)
+![React Toastify](https://img.shields.io/badge/React_Toastify-F04E23?style=for-the-badge&logo=react&logoColor=white)
+![React Select](https://img.shields.io/badge/React_Select-2684FF?style=for-the-badge&logo=react&logoColor=white)
 ![Socket.io](https://img.shields.io/badge/Socket.io-010101?style=for-the-badge&logo=socket.io&logoColor=white)
 ![Stripe](https://img.shields.io/badge/Stripe-626CD9?style=for-the-badge&logo=Stripe&logoColor=white)
 
