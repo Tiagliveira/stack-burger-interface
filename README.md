@@ -85,6 +85,5 @@ Banco de Dados: Instances isoladas de PostgreSQL e MongoDB.
 ## Autor
 
 Desenvolvido por **Tiago Oliveira**.
-Estudante de Análise e Desenvolvimento de Sistemas, focado em migrar do Front-end básico para aplicações Full Stack completas.
 
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/tiagoliveiradev)
