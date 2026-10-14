@@ -9,7 +9,8 @@ RUN npm install
 
 COPY . .
 
-ENV VITE_BASE_URL="https://stack-burger-backend.5scnjc.easypanel.host"
+ARG VITE_BASE_URL
+ENV VITE_BASE_URL=$VITE_BASE_URL
 
 RUN npm run build
 
